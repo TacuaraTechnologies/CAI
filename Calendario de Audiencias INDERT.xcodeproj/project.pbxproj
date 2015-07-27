@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D92685861B66F66F0041F949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92685851B66F66F0041F949 /* AppDelegate.swift */; };
+		D92685891B66F66F0041F949 /* Calendario_de_Audiencias_INDERT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D92685871B66F66F0041F949 /* Calendario_de_Audiencias_INDERT.xcdatamodeld */; };
+		D926858B1B66F66F0041F949 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D926858A1B66F66F0041F949 /* ViewController.swift */; };
+		D926858E1B66F66F0041F949 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D926858C1B66F66F0041F949 /* Main.storyboard */; };
+		D92685901B66F66F0041F949 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D926858F1B66F66F0041F949 /* Images.xcassets */; };
+		D92685931B66F66F0041F949 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D92685911B66F66F0041F949 /* LaunchScreen.xib */; };
+		D926859F1B66F66F0041F949 /* Calendario_de_Audiencias_INDERTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D926859E1B66F66F0041F949 /* Calendario_de_Audiencias_INDERTTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D92685991B66F66F0041F949 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D92685781B66F66F0041F949 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D926857F1B66F66F0041F949;
+			remoteInfo = "Calendario de Audiencias INDERT";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D92685801B66F66F0041F949 /* Calendario de Audiencias INDERT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calendario de Audiencias INDERT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D92685841B66F66F0041F949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D92685851B66F66F0041F949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D92685881B66F66F0041F949 /* Calendario_de_Audiencias_INDERT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calendario_de_Audiencias_INDERT.xcdatamodel; sourceTree = "<group>"; };
+		D926858A1B66F66F0041F949 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D926858D1B66F66F0041F949 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D926858F1B66F66F0041F949 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D92685921B66F66F0041F949 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		D92685981B66F66F0041F949 /* Calendario de Audiencias INDERTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Calendario de Audiencias INDERTTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D926859D1B66F66F0041F949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D926859E1B66F66F0041F949 /* Calendario_de_Audiencias_INDERTTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendario_de_Audiencias_INDERTTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D926857D1B66F66F0041F949 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D92685951B66F66F0041F949 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D92685771B66F66F0041F949 = {
+			isa = PBXGroup;
+			children = (
+				D92685821B66F66F0041F949 /* Calendario de Audiencias INDERT */,
+				D926859B1B66F66F0041F949 /* Calendario de Audiencias INDERTTests */,
+				D92685811B66F66F0041F949 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D92685811B66F66F0041F949 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D92685801B66F66F0041F949 /* Calendario de Audiencias INDERT.app */,
+				D92685981B66F66F0041F949 /* Calendario de Audiencias INDERTTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D92685821B66F66F0041F949 /* Calendario de Audiencias INDERT */ = {
+			isa = PBXGroup;
+			children = (
+				D92685851B66F66F0041F949 /* AppDelegate.swift */,
+				D926858A1B66F66F0041F949 /* ViewController.swift */,
+				D926858C1B66F66F0041F949 /* Main.storyboard */,
+				D926858F1B66F66F0041F949 /* Images.xcassets */,
+				D92685911B66F66F0041F949 /* LaunchScreen.xib */,
+				D92685871B66F66F0041F949 /* Calendario_de_Audiencias_INDERT.xcdatamodeld */,
+				D92685831B66F66F0041F949 /* Supporting Files */,
+			);
+			path = "Calendario de Audiencias INDERT";
+			sourceTree = "<group>";
+		};
+		D92685831B66F66F0041F949 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D92685841B66F66F0041F949 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D926859B1B66F66F0041F949 /* Calendario de Audiencias INDERTTests */ = {
+			isa = PBXGroup;
+			children = (
+				D926859E1B66F66F0041F949 /* Calendario_de_Audiencias_INDERTTests.swift */,
+				D926859C1B66F66F0041F949 /* Supporting Files */,
+			);
+			path = "Calendario de Audiencias INDERTTests";
+			sourceTree = "<group>";
+		};
+		D926859C1B66F66F0041F949 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D926859D1B66F66F0041F949 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D926857F1B66F66F0041F949 /* Calendario de Audiencias INDERT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D92685A21B66F66F0041F949 /* Build configuration list for PBXNativeTarget "Calendario de Audiencias INDERT" */;
+			buildPhases = (
+				D926857C1B66F66F0041F949 /* Sources */,
+				D926857D1B66F66F0041F949 /* Frameworks */,
+				D926857E1B66F66F0041F949 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Calendario de Audiencias INDERT";
+			productName = "Calendario de Audiencias INDERT";
+			productReference = D92685801B66F66F0041F949 /* Calendario de Audiencias INDERT.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D92685971B66F66F0041F949 /* Calendario de Audiencias INDERTTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D92685A51B66F66F0041F949 /* Build configuration list for PBXNativeTarget "Calendario de Audiencias INDERTTests" */;
+			buildPhases = (
+				D92685941B66F66F0041F949 /* Sources */,
+				D92685951B66F66F0041F949 /* Frameworks */,
+				D92685961B66F66F0041F949 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D926859A1B66F66F0041F949 /* PBXTargetDependency */,
+			);
+			name = "Calendario de Audiencias INDERTTests";
+			productName = "Calendario de Audiencias INDERTTests";
+			productReference = D92685981B66F66F0041F949 /* Calendario de Audiencias INDERTTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D92685781B66F66F0041F949 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Tacuara Technologies";
+				TargetAttributes = {
+					D926857F1B66F66F0041F949 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					D92685971B66F66F0041F949 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = D926857F1B66F66F0041F949;
+					};
+				};
+			};
+			buildConfigurationList = D926857B1B66F66F0041F949 /* Build configuration list for PBXProject "Calendario de Audiencias INDERT" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D92685771B66F66F0041F949;
+			productRefGroup = D92685811B66F66F0041F949 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D926857F1B66F66F0041F949 /* Calendario de Audiencias INDERT */,
+				D92685971B66F66F0041F949 /* Calendario de Audiencias INDERTTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D926857E1B66F66F0041F949 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D926858E1B66F66F0041F949 /* Main.storyboard in Resources */,
+				D92685931B66F66F0041F949 /* LaunchScreen.xib in Resources */,
+				D92685901B66F66F0041F949 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D92685961B66F66F0041F949 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D926857C1B66F66F0041F949 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D926858B1B66F66F0041F949 /* ViewController.swift in Sources */,
+				D92685891B66F66F0041F949 /* Calendario_de_Audiencias_INDERT.xcdatamodeld in Sources */,
+				D92685861B66F66F0041F949 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D92685941B66F66F0041F949 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D926859F1B66F66F0041F949 /* Calendario_de_Audiencias_INDERTTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D926859A1B66F66F0041F949 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D926857F1B66F66F0041F949 /* Calendario de Audiencias INDERT */;
+			targetProxy = D92685991B66F66F0041F949 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D926858C1B66F66F0041F949 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D926858D1B66F66F0041F949 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D92685911B66F66F0041F949 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D92685921B66F66F0041F949 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D92685A01B66F66F0041F949 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D92685A11B66F66F0041F949 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D92685A31B66F66F0041F949 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Calendario de Audiencias INDERT/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D92685A41B66F66F0041F949 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Calendario de Audiencias INDERT/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D92685A61B66F66F0041F949 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Calendario de Audiencias INDERTTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calendario de Audiencias INDERT.app/Calendario de Audiencias INDERT";
+			};
+			name = Debug;
+		};
+		D92685A71B66F66F0041F949 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Calendario de Audiencias INDERTTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calendario de Audiencias INDERT.app/Calendario de Audiencias INDERT";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D926857B1B66F66F0041F949 /* Build configuration list for PBXProject "Calendario de Audiencias INDERT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D92685A01B66F66F0041F949 /* Debug */,
+				D92685A11B66F66F0041F949 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D92685A21B66F66F0041F949 /* Build configuration list for PBXNativeTarget "Calendario de Audiencias INDERT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D92685A31B66F66F0041F949 /* Debug */,
+				D92685A41B66F66F0041F949 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D92685A51B66F66F0041F949 /* Build configuration list for PBXNativeTarget "Calendario de Audiencias INDERTTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D92685A61B66F66F0041F949 /* Debug */,
+				D92685A71B66F66F0041F949 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D92685871B66F66F0041F949 /* Calendario_de_Audiencias_INDERT.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D92685881B66F66F0041F949 /* Calendario_de_Audiencias_INDERT.xcdatamodel */,
+			);
+			currentVersion = D92685881B66F66F0041F949 /* Calendario_de_Audiencias_INDERT.xcdatamodel */;
+			path = Calendario_de_Audiencias_INDERT.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D92685781B66F66F0041F949 /* Project object */;
+}
