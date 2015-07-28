@@ -7,13 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9EE285F90983B916D48AB703 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26091E477F07299C6CCB35E /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D92685861B66F66F0041F949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92685851B66F66F0041F949 /* AppDelegate.swift */; };
 		D92685891B66F66F0041F949 /* Calendario_de_Audiencias_INDERT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D92685871B66F66F0041F949 /* Calendario_de_Audiencias_INDERT.xcdatamodeld */; };
-		D926858B1B66F66F0041F949 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D926858A1B66F66F0041F949 /* ViewController.swift */; };
 		D926858E1B66F66F0041F949 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D926858C1B66F66F0041F949 /* Main.storyboard */; };
 		D92685901B66F66F0041F949 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D926858F1B66F66F0041F949 /* Images.xcassets */; };
 		D92685931B66F66F0041F949 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D92685911B66F66F0041F949 /* LaunchScreen.xib */; };
 		D926859F1B66F66F0041F949 /* Calendario_de_Audiencias_INDERTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D926859E1B66F66F0041F949 /* Calendario_de_Audiencias_INDERTTests.swift */; };
+		D9A1180A1B66F95400AEBE3F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A118091B66F95400AEBE3F /* LoginViewController.swift */; };
+		D9A118111B66FAC400AEBE3F /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A118101B66FAC400AEBE3F /* PerfilViewController.swift */; };
+		D9A118141B66FAE200AEBE3F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A118131B66FAE200AEBE3F /* MainViewController.swift */; };
+		D9A118171B67021F00AEBE3F /* AudienciasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A118161B67021F00AEBE3F /* AudienciasTableViewCell.swift */; };
+		D9A118191B67026800AEBE3F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D9A118181B67026800AEBE3F /* Podfile */; };
+		D9A1181E1B67125100AEBE3F /* RecuperarPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A1181D1B67125100AEBE3F /* RecuperarPassViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,17 +33,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14F16E17375A9776961C9292 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Calendario de Audiencias INDERT/Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5FA5A3AD867B6E7F0F5B3815 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Calendario de Audiencias INDERT/Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D92685801B66F66F0041F949 /* Calendario de Audiencias INDERT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calendario de Audiencias INDERT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92685841B66F66F0041F949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D92685851B66F66F0041F949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D92685881B66F66F0041F949 /* Calendario_de_Audiencias_INDERT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calendario_de_Audiencias_INDERT.xcdatamodel; sourceTree = "<group>"; };
-		D926858A1B66F66F0041F949 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D926858D1B66F66F0041F949 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D926858F1B66F66F0041F949 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D92685921B66F66F0041F949 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D92685981B66F66F0041F949 /* Calendario de Audiencias INDERTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Calendario de Audiencias INDERTTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D926859D1B66F66F0041F949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D926859E1B66F66F0041F949 /* Calendario_de_Audiencias_INDERTTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendario_de_Audiencias_INDERTTests.swift; sourceTree = "<group>"; };
+		D9A118091B66F95400AEBE3F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D9A118101B66FAC400AEBE3F /* PerfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
+		D9A118131B66FAE200AEBE3F /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D9A118161B67021F00AEBE3F /* AudienciasTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudienciasTableViewCell.swift; sourceTree = "<group>"; };
+		D9A118181B67026800AEBE3F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		D9A1181D1B67125100AEBE3F /* RecuperarPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecuperarPassViewController.swift; sourceTree = "<group>"; };
+		E26091E477F07299C6CCB35E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EE285F90983B916D48AB703 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +73,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E021B9DB3BA1DC3D9A46B43 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5FA5A3AD867B6E7F0F5B3815 /* Pods.debug.xcconfig */,
+				14F16E17375A9776961C9292 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B8805D8AF3CA8271A3048487 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E26091E477F07299C6CCB35E /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D92685771B66F66F0041F949 = {
 			isa = PBXGroup;
 			children = (
 				D92685821B66F66F0041F949 /* Calendario de Audiencias INDERT */,
 				D926859B1B66F66F0041F949 /* Calendario de Audiencias INDERTTests */,
 				D92685811B66F66F0041F949 /* Products */,
+				3E021B9DB3BA1DC3D9A46B43 /* Pods */,
+				B8805D8AF3CA8271A3048487 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,11 +113,7 @@
 		D92685821B66F66F0041F949 /* Calendario de Audiencias INDERT */ = {
 			isa = PBXGroup;
 			children = (
-				D92685851B66F66F0041F949 /* AppDelegate.swift */,
-				D926858A1B66F66F0041F949 /* ViewController.swift */,
-				D926858C1B66F66F0041F949 /* Main.storyboard */,
-				D926858F1B66F66F0041F949 /* Images.xcassets */,
-				D92685911B66F66F0041F949 /* LaunchScreen.xib */,
+				D9A118071B66F92200AEBE3F /* GUI */,
 				D92685871B66F66F0041F949 /* Calendario_de_Audiencias_INDERT.xcdatamodeld */,
 				D92685831B66F66F0041F949 /* Supporting Files */,
 			);
@@ -93,7 +123,10 @@
 		D92685831B66F66F0041F949 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D926858F1B66F66F0041F949 /* Images.xcassets */,
+				D92685851B66F66F0041F949 /* AppDelegate.swift */,
 				D92685841B66F66F0041F949 /* Info.plist */,
+				D9A118181B67026800AEBE3F /* Podfile */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -115,6 +148,60 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D9A118071B66F92200AEBE3F /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				D92685911B66F66F0041F949 /* LaunchScreen.xib */,
+				D926858C1B66F66F0041F949 /* Main.storyboard */,
+				D9A1181A1B6711FF00AEBE3F /* Recuperar Pass */,
+				D9A118081B66F93200AEBE3F /* Login */,
+				D9A118121B66FAC800AEBE3F /* Perfil */,
+				D9A1180D1B66F97400AEBE3F /* Main View */,
+			);
+			name = GUI;
+			sourceTree = "<group>";
+		};
+		D9A118081B66F93200AEBE3F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D9A118091B66F95400AEBE3F /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		D9A1180D1B66F97400AEBE3F /* Main View */ = {
+			isa = PBXGroup;
+			children = (
+				D9A118131B66FAE200AEBE3F /* MainViewController.swift */,
+				D9A118151B6701F600AEBE3F /* AudienciasTableView */,
+			);
+			name = "Main View";
+			sourceTree = "<group>";
+		};
+		D9A118121B66FAC800AEBE3F /* Perfil */ = {
+			isa = PBXGroup;
+			children = (
+				D9A118101B66FAC400AEBE3F /* PerfilViewController.swift */,
+			);
+			name = Perfil;
+			sourceTree = "<group>";
+		};
+		D9A118151B6701F600AEBE3F /* AudienciasTableView */ = {
+			isa = PBXGroup;
+			children = (
+				D9A118161B67021F00AEBE3F /* AudienciasTableViewCell.swift */,
+			);
+			name = AudienciasTableView;
+			sourceTree = "<group>";
+		};
+		D9A1181A1B6711FF00AEBE3F /* Recuperar Pass */ = {
+			isa = PBXGroup;
+			children = (
+				D9A1181D1B67125100AEBE3F /* RecuperarPassViewController.swift */,
+			);
+			name = "Recuperar Pass";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,9 +209,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D92685A21B66F66F0041F949 /* Build configuration list for PBXNativeTarget "Calendario de Audiencias INDERT" */;
 			buildPhases = (
+				302736085F43391512A861B2 /* Check Pods Manifest.lock */,
 				D926857C1B66F66F0041F949 /* Sources */,
 				D926857D1B66F66F0041F949 /* Frameworks */,
 				D926857E1B66F66F0041F949 /* Resources */,
+				8B997DF72079A4E901E15182 /* Embed Pods Frameworks */,
+				11571003F8084606ECC469A6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -197,6 +287,7 @@
 			files = (
 				D926858E1B66F66F0041F949 /* Main.storyboard in Resources */,
 				D92685931B66F66F0041F949 /* LaunchScreen.xib in Resources */,
+				D9A118191B67026800AEBE3F /* Podfile in Resources */,
 				D92685901B66F66F0041F949 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,14 +301,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		11571003F8084606ECC469A6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Calendario de Audiencias INDERT/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		302736085F43391512A861B2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8B997DF72079A4E901E15182 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Calendario de Audiencias INDERT/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D926857C1B66F66F0041F949 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D926858B1B66F66F0041F949 /* ViewController.swift in Sources */,
+				D9A1180A1B66F95400AEBE3F /* LoginViewController.swift in Sources */,
+				D9A118171B67021F00AEBE3F /* AudienciasTableViewCell.swift in Sources */,
 				D92685891B66F66F0041F949 /* Calendario_de_Audiencias_INDERT.xcdatamodeld in Sources */,
+				D9A1181E1B67125100AEBE3F /* RecuperarPassViewController.swift in Sources */,
+				D9A118111B66FAC400AEBE3F /* PerfilViewController.swift in Sources */,
 				D92685861B66F66F0041F949 /* AppDelegate.swift in Sources */,
+				D9A118141B66FAE200AEBE3F /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,21 +487,27 @@
 		};
 		D92685A31B66F66F0041F949 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FA5A3AD867B6E7F0F5B3815 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Calendario de Audiencias INDERT/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		D92685A41B66F66F0041F949 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14F16E17375A9776961C9292 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Calendario de Audiencias INDERT/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -415,6 +564,7 @@
 				D92685A41B66F66F0041F949 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D92685A51B66F66F0041F949 /* Build configuration list for PBXNativeTarget "Calendario de Audiencias INDERTTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +573,7 @@
 				D92685A71B66F66F0041F949 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
