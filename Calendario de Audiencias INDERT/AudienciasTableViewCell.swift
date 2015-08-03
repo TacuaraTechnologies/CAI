@@ -14,9 +14,12 @@ class AudienciasTableViewCell: UITableViewCell {
     @IBOutlet weak var titulo: UILabel!
     @IBOutlet weak var notifySwitch: UISwitch!
     @IBOutlet weak var fecha: UILabel!
+    @IBOutlet weak var estado: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        estado.layer.cornerRadius = 5
+        estado.clipsToBounds = true
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -24,5 +27,8 @@ class AudienciasTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
+    
 
 }

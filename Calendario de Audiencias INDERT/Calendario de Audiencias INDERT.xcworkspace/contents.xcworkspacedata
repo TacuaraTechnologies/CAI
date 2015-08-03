@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:VerAudienciaViewController.swift">
+   </FileRef>
+   <FileRef
+      location = "group:NuevaAudienciaViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:../Calendario de Audiencias INDERT.xcodeproj">
    </FileRef>
    <FileRef

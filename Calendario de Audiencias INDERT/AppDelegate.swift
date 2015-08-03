@@ -17,8 +17,85 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        setupNotifications()
+        
         return true
     }
+    
+    
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+        if identifier == TTNotificationsID.Informar {
+            let not = NSNotification(name: "InformarAudienciaNotification", object: nil, userInfo: notification.userInfo)
+            NSNotificationCenter.defaultCenter().postNotification(not)
+        }
+        
+        if identifier == TTNotificationsID.Snooze {
+            let not = NSNotification(name: "SnoozeAudienciaNotification", object: nil, userInfo: notification.userInfo)
+            NSNotificationCenter.defaultCenter().postNotification(not)
+        }
+        if identifier == TTNotificationsID.Delete {
+            let not = NSNotification(name: "DeleteAudienciaNotification", object: nil, userInfo: notification.userInfo)
+            NSNotificationCenter.defaultCenter().postNotification(not)
+        }
+        completionHandler()
+        
+    }
+    
+    struct TTNotificationsID {
+        static let Informar = "InformarAudiencia"
+        static let Snooze = "Snooze"
+        static let Delete = "Delete"
+    }
+    
+  
+    
+    
+    func setupNotifications(){
+        let notificationSettings: UIUserNotificationSettings = UIApplication.sharedApplication().currentUserNotificationSettings()
+//        if notificationSettings.types == .None {
+        
+            var userNotificationTypes:UIUserNotificationType = .Alert | .Sound | .Badge
+            
+            var informAction = UIMutableUserNotificationAction()
+            informAction.identifier = TTNotificationsID.Informar
+            informAction.title = "Listo, lo tengo!"
+            informAction.activationMode = .Background
+            informAction.destructive = false
+            informAction.authenticationRequired = false
+            
+            let snooze = UIMutableUserNotificationAction()
+            snooze.identifier = TTNotificationsID.Snooze
+            snooze.title = "Snooze"
+            snooze.activationMode = .Background
+            snooze.destructive = false
+            snooze.authenticationRequired = false
+            
+            let delete = UIMutableUserNotificationAction()
+            delete.identifier = TTNotificationsID.Delete
+            delete.title = "Borrar"
+            delete.activationMode = .Foreground
+            delete.destructive = true
+            delete.authenticationRequired = true
+            
+            let actionsArray = NSArray(objects: informAction, snooze, delete)
+            let minimalArray = NSArray(objects: informAction,snooze)
+            
+            
+            let category = UIMutableUserNotificationCategory()
+            category.identifier = "audienciasNotificationsCategoryIdentifier"
+            category.setActions(actionsArray as [AnyObject], forContext: .Default)
+            category.setActions(minimalArray as [AnyObject], forContext: .Minimal)
+            
+            let categoriesForSettings = Set(arrayLiteral: category)
+            let newNotificationSettings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: categoriesForSettings)
+            UIApplication.sharedApplication().registerUserNotificationSettings(newNotificationSettings)
+            
+//        }
+    }
+    
+    
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

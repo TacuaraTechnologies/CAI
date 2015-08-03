@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TTAudiencia.swift"
+            timestampString = "460329668.584417"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "fixNotificationDate(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MainViewController.swift"
+            timestampString = "460325744.349721"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "listarAudiencias()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Calendario_de_Audiencias_INDERT.MainViewController.listarAudiencias (Calendario_de_Audiencias_INDERT.MainViewController)() -&gt; ()"
+                  moduleName = "Calendario de Audiencias INDERT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/javierrivarola/Documents/Tacuara%20Tech%20trabajos/APPS%20iOS/Calendario%20de%20Audiencias%20INDERT/Calendario%20de%20Audiencias%20INDERT/MainViewController.swift"
+                  timestampString = "460046937.353646"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "412">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Calendario_de_Audiencias_INDERT.MainViewController.(listarAudiencias (Calendario_de_Audiencias_INDERT.MainViewController) -&gt; () -&gt; ()).(closure #1)"
+                  moduleName = "Calendario de Audiencias INDERT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/javierrivarola/Documents/Tacuara%20Tech%20trabajos/APPS%20iOS/Calendario%20de%20Audiencias%20INDERT/Calendario%20de%20Audiencias%20INDERT/MainViewController.swift"
+                  timestampString = "460046937.360937"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "4136">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoginViewController.swift"
+            timestampString = "460058553.638629"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "loginPressed(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Calendario_de_Audiencias_INDERT.LoginViewController.loginWithProgress (Calendario_de_Audiencias_INDERT.LoginViewController)() -&gt; ()"
+                  moduleName = "Calendario de Audiencias INDERT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/javierrivarola/Documents/Tacuara%20Tech%20trabajos/APPS%20iOS/Calendario%20de%20Audiencias%20INDERT/Calendario%20de%20Audiencias%20INDERT/LoginViewController.swift"
+                  timestampString = "460056323.83837"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "2384">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Calendario_de_Audiencias_INDERT.LoginViewController.(loginWithProgress (Calendario_de_Audiencias_INDERT.LoginViewController) -&gt; () -&gt; ()).(closure #2)"
+                  moduleName = "Calendario de Audiencias INDERT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/javierrivarola/Documents/Tacuara%20Tech%20trabajos/APPS%20iOS/Calendario%20de%20Audiencias%20INDERT/Calendario%20de%20Audiencias%20INDERT/LoginViewController.swift"
+                  timestampString = "460056323.838621"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "162">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VerAudienciaViewController.swift"
+            timestampString = "460325908.050466"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "updateAudiencia(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

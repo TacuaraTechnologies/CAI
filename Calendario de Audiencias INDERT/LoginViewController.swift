@@ -7,17 +7,22 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Alamofire
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
+let user = TTUser.SharedInstance
     @IBOutlet weak var txtFieldHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var ingresarBtn: UIButton!
     @IBOutlet weak var recuperarPassBtn: UIButton!
     @IBOutlet weak var usuario: UITextField!
     @IBOutlet weak var password: UITextField!
-    
+    @IBOutlet weak var progressView: UIProgressView!
+    var blurView: DynamicBlurView?
     @IBOutlet weak var bottomConstraintForKB: NSLayoutConstraint!
     var keyboardHeight: CGFloat!
+    let api = API.SharedInstance
     
     struct Segues {
         static let gotoMainView = "gotoMainView"
@@ -50,10 +55,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
         }
     }
-    
+
     
     func setupUI(){
-    
         ingresarBtn.layer.cornerRadius = 5
         recuperarPassBtn.layer.cornerRadius = 5
         
@@ -74,7 +78,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             // ...
             keyboardHeight = keyboardSize.height
             
-            if keyboardHeight > (self.view.bounds.height/2 - 89.5) {
+            if keyboardHeight > (self.view.bounds.height/2 - 50) {
             UIView.animateWithDuration(0.5, animations: {
                     self.txtFieldHeightConstraint.constant = 0
 
@@ -86,7 +90,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func keyboardWillHide(notification: NSNotification){
-        txtFieldHeightConstraint.constant = -89.5
+        txtFieldHeightConstraint.constant = -50
 
     }
     
@@ -96,11 +100,77 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        
+        if !loginRequestEnded {
+            api.stackRequest.first?.cancel()
+            UIView.animateWithDuration(0.3, animations: {
+                blurView?.blurRadius = 0
+                
+                }, completion: {fin in
+                    self.blurView?.removeFromSuperview()
+                    self.blurView = nil
+                    self.spinner.stopAnimating()
+            })
+        }
+        
         self.view.endEditing(true)
     }
+    
+    
+    var loginRequestEnded: Bool = true
   
     @IBAction func loginPressed(sender: UIButton) {
-        performSegueWithIdentifier(Segues.gotoMainView, sender: self)
+        loginRequestEnded = false
+        usuario.resignFirstResponder()
+        password.resignFirstResponder()
+        blurView = DynamicBlurView(frame: self.view.frame)
+        blurView?.blurRadius = 0
+        self.view.insertSubview(blurView!, belowSubview: spinner)
+        UIView.animateWithDuration(0.3, animations: {
+            blurView?.blurRadius = 8
+            
+            }, completion: {fin in
+                self.spinner.startAnimating()
+        })
+        
+
+        
+       let parameters = ["usuario":usuario.text,"clave":password.text,"codigo":API.Codes.Login.rawValue]
+       //let parameters = ["usuario":"tra","clave":"sn00.pY","codigo":API.Codes.Login.rawValue]
+
+        api.request(parameters) { json, error in
+            self.loginRequestEnded = true
+            UIView.animateWithDuration(0.3, animations: {
+                blurView?.blurRadius = 0
+
+                }, completion: {fin in
+                    self.blurView?.removeFromSuperview()
+                    self.blurView = nil
+                    self.spinner.stopAnimating()
+            })
+            if error == nil {
+                if let json = json {
+                    if json["loggedIn"].boolValue {
+                        
+                        self.usuario.text = ""
+                        self.password.text = ""
+                        self.user.logged = true
+                    
+                        
+                        self.performSegueWithIdentifier(Segues.gotoMainView, sender: self)
+                    }else{
+                        let message = json["message"].string ?? "No hay mensaje de error"
+                        self.password.text = ""
+
+                        let alert = UIAlertController(title: "Error al iniciar sesión", message:message, preferredStyle: .Alert)
+                        alert.addAction(UIAlertAction(title: "Aceptar", style: .Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    }
+                }
+            }
+        }
+
+        
         
     }
     
