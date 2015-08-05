@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9EE285F90983B916D48AB703 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26091E477F07299C6CCB35E /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		D90127C81B70E6C30008C085 /* TTUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90127C71B70E6C30008C085 /* TTUser.swift */; };
+		D90127CB1B7101420008C085 /* NuevaAudienciaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90127CA1B7101420008C085 /* NuevaAudienciaTableViewController.swift */; };
 		D90288B01B6BB3D9001768E3 /* DynamicBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90288AF1B6BB3D9001768E3 /* DynamicBlurView.swift */; };
 		D92685861B66F66F0041F949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92685851B66F66F0041F949 /* AppDelegate.swift */; };
 		D92685891B66F66F0041F949 /* Calendario_de_Audiencias_INDERT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D92685871B66F66F0041F949 /* Calendario_de_Audiencias_INDERT.xcdatamodeld */; };
@@ -43,6 +45,8 @@
 /* Begin PBXFileReference section */
 		14F16E17375A9776961C9292 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Calendario de Audiencias INDERT/Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5FA5A3AD867B6E7F0F5B3815 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Calendario de Audiencias INDERT/Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D90127C71B70E6C30008C085 /* TTUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTUser.swift; sourceTree = "<group>"; };
+		D90127CA1B7101420008C085 /* NuevaAudienciaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NuevaAudienciaTableViewController.swift; sourceTree = "<group>"; };
 		D90288AF1B6BB3D9001768E3 /* DynamicBlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicBlurView.swift; sourceTree = "<group>"; };
 		D92685801B66F66F0041F949 /* Calendario de Audiencias INDERT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calendario de Audiencias INDERT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92685841B66F66F0041F949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,6 +110,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D90127C91B70E6CA0008C085 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				D90127C71B70E6C30008C085 /* TTUser.swift */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		D90127CC1B7101500008C085 /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				D99DBB751B67AB3100CA8BF3 /* NuevaAudienciaViewController.swift */,
+			);
+			name = Old;
+			sourceTree = "<group>";
+		};
+		D90127CD1B7101590008C085 /* Table View */ = {
+			isa = PBXGroup;
+			children = (
+				D90127CA1B7101420008C085 /* NuevaAudienciaTableViewController.swift */,
+			);
+			name = "Table View";
+			sourceTree = "<group>";
+		};
 		D92685771B66F66F0041F949 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +174,7 @@
 				D92685841B66F66F0041F949 /* Info.plist */,
 				D9A118181B67026800AEBE3F /* Podfile */,
 				D99DBB831B681E7A00CA8BF3 /* API */,
+				D90127C91B70E6CA0008C085 /* User */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -170,7 +199,8 @@
 		D99DBB741B67AB1900CA8BF3 /* Nueva Audiencia */ = {
 			isa = PBXGroup;
 			children = (
-				D99DBB751B67AB3100CA8BF3 /* NuevaAudienciaViewController.swift */,
+				D90127CD1B7101590008C085 /* Table View */,
+				D90127CC1B7101500008C085 /* Old */,
 			);
 			name = "Nueva Audiencia";
 			sourceTree = "<group>";
@@ -305,6 +335,7 @@
 		D92685781B66F66F0041F949 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Tacuara Technologies";
 				TargetAttributes = {
@@ -314,6 +345,7 @@
 					};
 					D92685971B66F66F0041F949 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = P5FUN8DH8K;
 						TestTargetID = D926857F1B66F66F0041F949;
 					};
 				};
@@ -425,6 +457,8 @@
 				D99DBB7D1B67BEB900CA8BF3 /* TTAudiencias.swift in Sources */,
 				D9A118141B66FAE200AEBE3F /* MainViewController.swift in Sources */,
 				D99DBB781B67B68700CA8BF3 /* TTAudiencia.swift in Sources */,
+				D90127CB1B7101420008C085 /* NuevaAudienciaTableViewController.swift in Sources */,
+				D90127C81B70E6C30008C085 /* TTUser.swift in Sources */,
 				D99DBB7B1B67B78700CA8BF3 /* TTExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,7 +518,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Eduardo Rivarola (P5FUN8DH8K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Eduardo Rivarola (P5FUN8DH8K)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -506,7 +541,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				PROVISIONING_PROFILE = "117fc35d-b4c7-4165-b97b-3aba4d2623a0";
+				SDKROOT = iphoneos8.4;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -529,7 +565,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Eduardo Rivarola (P5FUN8DH8K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Eduardo Rivarola (P5FUN8DH8K)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -544,7 +581,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
+				PROVISIONING_PROFILE = "117fc35d-b4c7-4165-b97b-3aba4d2623a0";
+				SDKROOT = iphoneos8.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -555,13 +593,14 @@
 			baseConfigurationReference = 5FA5A3AD867B6E7F0F5B3815 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Eduardo Rivarola (P5FUN8DH8K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Eduardo Rivarola (P5FUN8DH8K)";
 				INFOPLIST_FILE = "Calendario de Audiencias INDERT/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "117fc35d-b4c7-4165-b97b-3aba4d2623a0";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -571,13 +610,14 @@
 			baseConfigurationReference = 14F16E17375A9776961C9292 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Eduardo Rivarola (P5FUN8DH8K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Eduardo Rivarola (P5FUN8DH8K)";
 				INFOPLIST_FILE = "Calendario de Audiencias INDERT/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "117fc35d-b4c7-4165-b97b-3aba4d2623a0";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -586,6 +626,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -595,8 +637,10 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Calendario de Audiencias INDERTTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calendario de Audiencias INDERT.app/Calendario de Audiencias INDERT";
 			};
 			name = Debug;
@@ -605,16 +649,96 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Calendario de Audiencias INDERTTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calendario de Audiencias INDERT.app/Calendario de Audiencias INDERT";
 			};
 			name = Release;
+		};
+		D96572F11B717373001D1E54 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Eduardo Rivarola (P5FUN8DH8K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Eduardo Rivarola (P5FUN8DH8K)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "117fc35d-b4c7-4165-b97b-3aba4d2623a0";
+				SDKROOT = iphoneos8.4;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		D96572F21B717373001D1E54 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14F16E17375A9776961C9292 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Eduardo Rivarola (P5FUN8DH8K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Eduardo Rivarola (P5FUN8DH8K)";
+				INFOPLIST_FILE = "Calendario de Audiencias INDERT/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "117fc35d-b4c7-4165-b97b-3aba4d2623a0";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Distribution;
+		};
+		D96572F31B717373001D1E54 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Calendario de Audiencias INDERTTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calendario de Audiencias INDERT.app/Calendario de Audiencias INDERT";
+			};
+			name = Distribution;
 		};
 /* End XCBuildConfiguration section */
 
@@ -624,6 +748,7 @@
 			buildConfigurations = (
 				D92685A01B66F66F0041F949 /* Debug */,
 				D92685A11B66F66F0041F949 /* Release */,
+				D96572F11B717373001D1E54 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -633,6 +758,7 @@
 			buildConfigurations = (
 				D92685A31B66F66F0041F949 /* Debug */,
 				D92685A41B66F66F0041F949 /* Release */,
+				D96572F21B717373001D1E54 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -642,6 +768,7 @@
 			buildConfigurations = (
 				D92685A61B66F66F0041F949 /* Debug */,
 				D92685A71B66F66F0041F949 /* Release */,
+				D96572F31B717373001D1E54 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

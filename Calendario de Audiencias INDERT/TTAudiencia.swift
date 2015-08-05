@@ -34,12 +34,12 @@ class TTAudiencia {
             if notify {
                 //set notification
                 setNotification()
-                println("notification Enabled at \(self.fecha)")
-
+                //set event
+                
+                
             }else{
                 //disable this notification
                 disableNotification(self.id)
-                println("notification disabled")
             }
         }
     }// defaults always alert
@@ -49,6 +49,7 @@ class TTAudiencia {
         for notification in UIApplication.sharedApplication().scheduledLocalNotifications as! [UILocalNotification] {
             if (notification.userInfo!["id_audiencia"] as? String == notificationID) {
                 UIApplication.sharedApplication().cancelLocalNotification(notification)
+                println("notification disabled for \(self.titulo!)")
                 break
             }
         }
@@ -57,28 +58,29 @@ class TTAudiencia {
     
     func setNotification() -> Bool{
         if self.notify {
-        if self.fecha != nil {
-            var notification =  UILocalNotification()
-            setAsEventInCalendar()
-            notification.fireDate = self.fecha
-            notification.alertBody = self.titulo
-            notification.alertTitle = "Tienes una audiencia!"
-            notification.alertAction = "Ver Detalles"
-            notification.category = "audienciasNotificationsCategoryIdentifier"
-            var idInfo = ["id_audiencia":self.id!]
-            notification.userInfo = idInfo
-            
-            for noti in UIApplication.sharedApplication().scheduledLocalNotifications as! [UILocalNotification] {
-                if notification.userInfo!["id_audiencia"] as? String == self.id {
-                    println("notification already set")
-                    return false
+            if self.fecha != nil {
+                var notification =  UILocalNotification()
+                notification.fireDate = self.fecha
+                notification.alertBody = self.titulo
+                notification.alertTitle = "Tienes una audiencia!"
+                notification.alertAction = "Ver Detalles"
+                notification.category = "audienciasNotificationsCategoryIdentifier"
+                var idInfo = ["id_audiencia":self.id!]
+                notification.userInfo = idInfo
+                
+                for noti in UIApplication.sharedApplication().scheduledLocalNotifications as! [UILocalNotification] {
+                    if notification.userInfo!["id_audiencia"] as? String == self.id {
+                        println("notification already set for \(self.titulo!)")
+                        return false
+                    }
                 }
+                println("notification Enabled for \(self.titulo!)")
+
+                UIApplication.sharedApplication().scheduleLocalNotification(notification)
+                return true
+            }else{
+                return false
             }
-            UIApplication.sharedApplication().scheduleLocalNotification(notification)
-            return true
-        }else{
-            return false
-        }
         }
         return false
     }
@@ -88,33 +90,32 @@ class TTAudiencia {
     }
     
     
-   func setAsEventInCalendar(){
-    var eventStore: EKEventStore = EKEventStore()
-    eventStore.requestAccessToEntityType(EKEntityTypeEvent) { granted, error in
-        if granted && error == nil {
-            
-            var userEvents = TTUserPreferences.SharedInstance.calendarEvents
-            if !contains(userEvents, self.titulo!) {
+    func setAsEventInCalendar(){
+        var eventStore: EKEventStore = EKEventStore()
+        eventStore.requestAccessToEntityType(EKEntityTypeEvent) { granted, error in
+            if granted && error == nil {
                 
-        
-            userEvents.append(self.titulo!)
-            var event = EKEvent(eventStore: eventStore)
-            event.title = self.titulo
-            event.startDate = self.fecha
-            event.endDate = self.fecha
-            event.notes = self.descripcion
-            event.calendar = eventStore.defaultCalendarForNewEvents
-            var alarm:EKAlarm = EKAlarm(relativeOffset: -60*15)
-            event.alarms = [alarm]
-            
-            eventStore.saveEvent(event, span: EKSpanThisEvent, error: nil)
-            
-            TTUserPreferences.SharedInstance.save()
+               
+                    
+                    var event = EKEvent(eventStore: eventStore)
+                    event.title = self.titulo
+                    
+                    event.startDate = self.fecha
+                    event.endDate = self.fecha?.dateByAddingTimeInterval(30.0*15)
+                    event.notes = self.descripcion
+                    event.calendar = eventStore.defaultCalendarForNewEvents
+                    var alarm:EKAlarm = EKAlarm(relativeOffset: -60*15)
+                    event.alarms = [alarm]
+                    
+                    eventStore.saveEvent(event, span: EKSpanThisEvent, error: nil)
+                    
+                    
                 
             }
         }
-        }
     }
+    
+    var userEvents:[String] = []
     
     convenience init(id: String, titulo: String, fecha: NSDate, descripcion:String?, notify: Bool){
         self.init()
@@ -133,35 +134,20 @@ class TTAudiencia {
         return fixedDate
     }
     
-}
-
-class TTUserPreferences {
-    static let SharedInstance = TTUserPreferences()
-    var snoozeTime: CGFloat?
-    
-    var calendarEvents:[String] = []
-    struct Keys {
-    static let ArrayOfCalendarEventsSaved = "ArrayOfCalendarEventsSaved"
-    }
-    init(){
-        calendarEvents = NSUserDefaults.standardUserDefaults().valueForKey(Keys.ArrayOfCalendarEventsSaved) as? [String] ?? []
-    }
-    
-    func save() {
+    func fetchEvents(completed: (NSMutableArray) -> ()) {
+        var eventStore: EKEventStore = EKEventStore()
         
-        NSUserDefaults.standardUserDefaults().setValue(calendarEvents, forKey: Keys.ArrayOfCalendarEventsSaved)
-        NSUserDefaults.standardUserDefaults().synchronize()
-        
+        eventStore.requestAccessToEntityType(EKEntityType()) { [weak self]
+            granted, error in
+            if let strongSelf = self {
+                let endDate = NSDate(timeIntervalSinceNow: 604800*10);   //This is 10 weeks in seconds
+                let predicate = eventStore.predicateForEventsWithStartDate(NSDate(), endDate: NSDate(), calendars: nil)
+                let events = NSMutableArray(array: eventStore.eventsMatchingPredicate(predicate))
+                completed(events)
+            }
+        }
     }
     
 }
 
-class TTUser {
-    static let SharedInstance = TTUser()
-    var audiencias:[TTAudiencia]?
-    var logged : Bool?
-    var nombre: String?
-    var id: Int?
-    
-}
 

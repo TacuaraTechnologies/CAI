@@ -15,6 +15,7 @@ class VerAudienciaViewController: UIViewController {
     @IBOutlet weak var estado: UIButton!
     @IBOutlet weak var fecha: UILabel!
     
+    @IBOutlet weak var telefono: UILabel!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var notifySwitch: UISwitch!
     
@@ -35,7 +36,7 @@ class VerAudienciaViewController: UIViewController {
             dateFormatter.dateFormat = "dd-MM-yyyy HH:MM"
             
             fecha.text = dateFormatter.stringFromDate(audiencia.fecha!)
-            
+            telefono.text = audiencia.telefono
         }
         
     }

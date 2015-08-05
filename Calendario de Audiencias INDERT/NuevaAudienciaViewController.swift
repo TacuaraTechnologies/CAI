@@ -68,9 +68,9 @@ class NuevaAudienciaViewController: UIViewController, UITextFieldDelegate {
     }
     */
     }
-    
+    var datePicker: UIDatePicker!
     func setupUI(){
-        var datePicker = UIDatePicker(frame: CGRectMake(0, 40, 0, 0))
+        datePicker = UIDatePicker(frame: CGRectMake(0, 40, 0, 0))
         datePicker.datePickerMode = UIDatePickerMode.DateAndTime
         datePicker.backgroundColor = UIColor(red: 114/255, green: 177/255, blue: 4/255, alpha: 1)
         datePicker.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: .ValueChanged)
@@ -94,7 +94,7 @@ class NuevaAudienciaViewController: UIViewController, UITextFieldDelegate {
     }
     func datePickerValueChanged(datePicker: UIDatePicker) {
         var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy HH:MM"
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:MM"
         fecha.text =  dateFormatter.stringFromDate(datePicker.date)
     }
     
@@ -126,8 +126,15 @@ class NuevaAudienciaViewController: UIViewController, UITextFieldDelegate {
                 self.spinner.startAnimating()
         })
         //let parameters = ["request":API.Codes.AgregarAudiencia.rawValue,"fecha":fecha.text,"nombre":titulo.text,"motivo":descripcion.text,"lugar":lugar.text,"telefono":"234","cedula":"0","estado":"0"]
-        
-          let parameters = ["codigo":API.Codes.AgregarAudiencia.rawValue,"fecha":"05/07/2020","nombre":"prueba app 3","motivo":"prueba app","lugar":"cloud","telefono":"234","cedula":"0","estado":"2","hora":"10:50"]
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+    
+        let fechaFromDate = dateFormatter.stringFromDate(datePicker.date)
+        dateFormatter.dateFormat = "HH:MM"
+
+        let hora = dateFormatter.stringFromDate(datePicker.date)
+          let parameters = ["codigo":API.Codes.AgregarAudiencia.rawValue,"fecha":"\(fechaFromDate)","nombre":"\(titulo.text)","motivo":"\(descripcion.text)","lugar":"\(lugar.text)","telefono":"0","cedula":"0","estado":"0","hora":"\(hora)"]
+        println(parameters)
         api.request(parameters){ json, error in
             
             
@@ -140,7 +147,7 @@ class NuevaAudienciaViewController: UIViewController, UITextFieldDelegate {
             })
             
             
-            if error == nil && json != nil {
+            if error == nil {
                 
                 let center = NSNotificationCenter.defaultCenter()
                 

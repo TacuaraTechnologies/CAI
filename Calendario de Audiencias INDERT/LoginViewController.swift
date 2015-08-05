@@ -19,6 +19,7 @@ let user = TTUser.SharedInstance
     @IBOutlet weak var usuario: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var logoIV: UIImageView!
     var blurView: DynamicBlurView?
     @IBOutlet weak var bottomConstraintForKB: NSLayoutConstraint!
     var keyboardHeight: CGFloat!
@@ -46,6 +47,7 @@ let user = TTUser.SharedInstance
     }
     
 
+ 
     
     // MARK: - Navigation
 
@@ -64,6 +66,40 @@ let user = TTUser.SharedInstance
         ingresarBtn.clipsToBounds = true
         recuperarPassBtn.clipsToBounds = true
         
+        animateWelcomeScreen()
+        
+    }
+    
+    func animateWelcomeScreen(){
+        logoIV.transform = CGAffineTransformMakeTranslation(0,-self.view.bounds.height/2)
+        usuario.transform = CGAffineTransformMakeTranslation(0,self.view.bounds.height/2)
+        logoIV.alpha = 0
+        usuario.alpha = 0
+        password.transform = CGAffineTransformMakeTranslation(0,self.view.bounds.height/2)
+        ingresarBtn.transform = CGAffineTransformMakeTranslation(0,self.view.bounds.height/2)
+        password.alpha = 0
+        ingresarBtn.alpha = 0
+     
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: .CurveEaseIn, animations: {
+            self.logoIV.transform = CGAffineTransformIdentity
+            self.usuario.transform = CGAffineTransformIdentity
+            self.logoIV.alpha = 1
+            self.usuario.alpha = 1
+            }, completion: {fin in
+              
+
+        })
+        
+        UIView.animateWithDuration(0.5, delay: 0.2, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6,options: .CurveLinear , animations: {
+            self.password.transform = CGAffineTransformIdentity
+            self.password.alpha = 1
+
+            }, completion:nil)
+        
+        UIView.animateWithDuration(0.5, delay: 0.4, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: .CurveLinear , animations: {
+            self.ingresarBtn.transform = CGAffineTransformIdentity
+            self.ingresarBtn.alpha = 1
+            }, completion: nil)
     }
     
     func setupObservers(){
@@ -79,7 +115,7 @@ let user = TTUser.SharedInstance
             keyboardHeight = keyboardSize.height
             
             if keyboardHeight > (self.view.bounds.height/2 - 50) {
-            UIView.animateWithDuration(0.5, animations: {
+            UIView.animateWithDuration(0.1, animations: {
                     self.txtFieldHeightConstraint.constant = 0
 
             })
@@ -121,6 +157,7 @@ let user = TTUser.SharedInstance
   
     @IBAction func loginPressed(sender: UIButton) {
         loginRequestEnded = false
+    
         usuario.resignFirstResponder()
         password.resignFirstResponder()
         blurView = DynamicBlurView(frame: self.view.frame)
@@ -136,9 +173,9 @@ let user = TTUser.SharedInstance
 
         
        let parameters = ["usuario":usuario.text,"clave":password.text,"codigo":API.Codes.Login.rawValue]
-       //let parameters = ["usuario":"tra","clave":"sn00.pY","codigo":API.Codes.Login.rawValue]
+       //let parameters = ["usuario":"tra","clave":"sn00.pY"]
 
-        api.request(parameters) { json, error in
+        api.login(parameters) { json, error in
             self.loginRequestEnded = true
             UIView.animateWithDuration(0.3, animations: {
                 blurView?.blurRadius = 0

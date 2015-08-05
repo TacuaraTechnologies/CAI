@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:NuevaAudienciaTableViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:VerAudienciaViewController.swift">
    </FileRef>
    <FileRef

@@ -13,6 +13,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var audienciasPasadas: [TTAudiencia] = []
     var audiencias:[[TTAudiencia]] = []
     var refreshControl: UIRefreshControl?
+    var oldTV: UIView?
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
@@ -47,9 +48,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         refreshControl?.addTarget(self, action: Selector("listarAudiencias"), forControlEvents: .ValueChanged)
         
         tableView.addSubview(refreshControl!)
+        
     }
-
-
+    
   
     
     func listarAudiencias(){
@@ -60,8 +61,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.audienciasPasadas = []
             self.audienciasProximas = []
             if error == nil {
-                println(json?["audiencias"].array)
-
+                
                     if let audiencias = json!["audiencias"].array {
                  
 
@@ -72,7 +72,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             newAudiencia.titulo = audiencia["nombre"].string
                             
                             var fechaFromJson = audiencia["fecha"].string
-                            println(fechaFromJson)
                             newAudiencia.fechaJson = fechaFromJson
                             
                             let formatter = NSDateFormatter()
@@ -116,14 +115,40 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
 
                             }
-                        }}
+                        }
+                    }else{
+                        //failure
+                }
+                
+                
                 self.audiencias.append(self.audienciasProximas)
                 self.audiencias.append(self.audienciasPasadas)
                 self.tableView.reloadData()
                 self.refreshControl?.endRefreshing()
-                }
+                
+                self.addCalendarEvents()
+                
+            }else{
+                //connection error
+                println(error)
+            }
             }
         
+    }
+    
+    
+    func addCalendarEvents(){
+        var events = TTUserPreferences.SharedInstance.calendarEvents
+        for au in audiencias {
+            for aud in au {
+            if !contains(events,aud.id!) {
+                aud.setAsEventInCalendar()
+                events.append(aud.id!)
+            }
+            }
+        }
+        TTUserPreferences.SharedInstance.calendarEvents = events
+        TTUserPreferences.SharedInstance.save()
     }
     
     func keyboardWillShow(notification: NSNotification){
@@ -151,9 +176,13 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("handleDeleteAudiencia:"), name: "DeleteAudienciaNotification", object: nil)
         
         
+        
+        
         let center = NSNotificationCenter.defaultCenter()
         center.addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         center.addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+        
+         center.addObserver(self, selector: Selector("listarAudiencias"), name: "kShouldReloadAudiencias", object: nil)
         
     }
     
@@ -163,12 +192,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func handleSnoozeAudiencia(notification: NSNotification){
         let userInfo = notification.userInfo as! [String:Int]
-        println(userInfo["id"])
         
     }
     
     func handleDeleteAudiencia(notification: NSNotification){
-        println(notification.userInfo)
     }
     
     deinit {
@@ -191,7 +218,13 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let dvc = segue.destinationViewController as! VerAudienciaViewController
             let audienciaCell = sender as! AudienciasTableViewCell
             let ip = tableView.indexPathForCell(audienciaCell)!
-            dvc.audiencia = audienciasProximas[ip.row]
+            var selectedAudiencia: TTAudiencia!
+            if searchActive {
+                selectedAudiencia = filteredAudiencias[ip.section][ip.row]
+            }else{
+                selectedAudiencia = audiencias[ip.section][ip.row]
+            }
+            dvc.audiencia = selectedAudiencia
             
         }
     }
@@ -274,17 +307,45 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
         })
 
-        let actions = [editAction,posponeAction]
+        let actions = [editAction] // add postpone action later on
         return actions
     }
     
     func borrarAudiencia(indexPath: NSIndexPath){
-        let audiencia = audiencias[indexPath.section][indexPath.row]
         
+        let blurView = DynamicBlurView(frame: self.view.frame)
+        blurView.blurRadius = 0
+        oldTV = self.navigationItem.titleView
+        self.navigationItem.titleView = spinner
+        self.view.insertSubview(blurView, belowSubview: spinner)
+        UIView.animateWithDuration(0.3, animations: {
+            blurView.blurRadius = 8
+            }, completion: {fin in
+                self.spinner.startAnimating()
+        })
+
+        
+        
+        var audiencia: TTAudiencia!
+        if !searchActive {
+         audiencia = audiencias[indexPath.section][indexPath.row]
+        }else{
+             audiencia = filteredAudiencias[indexPath.section][indexPath.row]
+        }
         let parameters = ["codigo":API.Codes.BorrarAudiencia.rawValue,"id_audiencia":"\(audiencia.id!)"]
         
         api.request(parameters){json, error in
-            self.tableView.reloadData()
+            
+            UIView.animateWithDuration(0.3, animations: {
+                blurView.blurRadius = 0
+                }, completion: {fin in
+                    blurView.removeFromSuperview()
+                    self.spinner.stopAnimating()
+                    self.navigationItem.titleView = self.oldTV
+
+            })
+            
+            self.listarAudiencias()
 
             if error == nil {
                 let success = json!["Success"].string
@@ -315,7 +376,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! AudienciasTableViewCell
+        var cell: AudienciasTableViewCell!
+        
+        if searchActive {
+            
+        }
+         cell = tableView.cellForRowAtIndexPath(indexPath) as! AudienciasTableViewCell
         performSegueWithIdentifier(Segues.verAudiencia, sender: cell)
     }
     
