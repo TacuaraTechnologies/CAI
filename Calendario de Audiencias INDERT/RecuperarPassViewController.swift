@@ -44,8 +44,8 @@ class RecuperarPassViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(textField: UITextField) {
         textField.resignFirstResponder()
     }
-    
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+ 
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
     

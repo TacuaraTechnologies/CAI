@@ -49,14 +49,14 @@ class NuevaAudienciaTableViewController: UITableViewController {
                 }
             }
             let ok = UIAlertAction(title: "Ok", style: .Default){ action in
-                let textField = alert.textFields?.first as! UITextField
+                let textField = alert.textFields?.first
                 let cell = tableView.cellForRowAtIndexPath(indexPath)
-                cell?.detailTextLabel?.text = textField.text
+                cell?.detailTextLabel?.text = textField?.text
                 
             }
             
             let cancelar = UIAlertAction(title: "Cancelar", style: .Default){ action in
-                let textField = alert.textFields?.first as! UITextField
+                let textField = alert.textFields?.first
                 let cell = tableView.cellForRowAtIndexPath(indexPath)
                 cell?.detailTextLabel?.text = "Sin Datos"
             }
@@ -76,17 +76,17 @@ class NuevaAudienciaTableViewController: UITableViewController {
                 }
             }
             let ok = UIAlertAction(title: "Ok", style: .Default){ action in
-                let textField = alert.textFields?.first as! UITextField
+                let textField = alert.textFields?.first
                 let cell = tableView.cellForRowAtIndexPath(indexPath)
-                cell?.detailTextLabel?.text = textField.text
-                if textField.text != "0"{
-                    self.searchForName(textField.text)
+                cell?.detailTextLabel?.text = textField?.text
+                if textField?.text != "0"{
+                    self.searchForName(textField!.text!)
                 }
                 
             }
             
             let cancelar = UIAlertAction(title: "Cancelar", style: .Default){ action in
-                let textField = alert.textFields?.first as! UITextField
+                let textField = alert.textFields?.first
                 let cell = tableView.cellForRowAtIndexPath(indexPath)
                 cell?.detailTextLabel?.text = "Sin Datos"
             }
@@ -105,14 +105,14 @@ class NuevaAudienciaTableViewController: UITableViewController {
                 }
             }
             let ok = UIAlertAction(title: "Ok", style: .Default){ action in
-                let textField = alert.textFields?.first as! UITextField
+                let textField = alert.textFields?.first
                 let cell = tableView.cellForRowAtIndexPath(indexPath)
-                cell?.detailTextLabel?.text = textField.text
+                cell?.detailTextLabel?.text = textField?.text
                 
             }
             
             let cancelar = UIAlertAction(title: "Cancelar", style: .Default){ action in
-                let textField = alert.textFields?.first as! UITextField
+                let textField = alert.textFields?.first
                 let cell = tableView.cellForRowAtIndexPath(indexPath)
                 cell?.detailTextLabel?.text = "Sin Datos"
             }
@@ -132,14 +132,14 @@ class NuevaAudienciaTableViewController: UITableViewController {
                 }
             }
             let ok = UIAlertAction(title: "Ok", style: .Default){ action in
-                let textField = alert.textFields?.first as! UITextField
+                let textField = alert.textFields?.first
                 let cell = tableView.cellForRowAtIndexPath(indexPath)
-                cell?.detailTextLabel?.text = textField.text
+                cell?.detailTextLabel?.text = textField?.text
                 
             }
             
             let cancelar = UIAlertAction(title: "Cancelar", style: .Default){ action in
-                let textField = alert.textFields?.first as! UITextField
+                let textField = alert.textFields?.first
                 let cell = tableView.cellForRowAtIndexPath(indexPath)
                 cell?.detailTextLabel?.text = "Sin Datos"
             }
@@ -158,14 +158,14 @@ class NuevaAudienciaTableViewController: UITableViewController {
                 }
             }
             let ok = UIAlertAction(title: "Ok", style: .Default){ action in
-                let textField = alert.textFields?.first as! UITextField
+                let textField = alert.textFields?.first
                 let cell = tableView.cellForRowAtIndexPath(indexPath)
-                cell?.detailTextLabel?.text = textField.text
+                cell?.detailTextLabel?.text = textField?.text
                 
             }
             
             let cancelar = UIAlertAction(title: "Cancelar", style: .Default){ action in
-                let textField = alert.textFields?.first as! UITextField
+                let textField = alert.textFields?.first 
                 let cell = tableView.cellForRowAtIndexPath(indexPath)
                 cell?.detailTextLabel?.text = "Sin Datos"
             }
@@ -224,7 +224,7 @@ class NuevaAudienciaTableViewController: UITableViewController {
         self.view.endEditing(true)
     }
     func datePickerValueChanged(datePicker: UIDatePicker) {
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy HH:MM"
         let fechaCell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 5, inSection: 0))
         fechaCell?.detailTextLabel?.text =  dateFormatter.stringFromDate(datePicker.date)
@@ -285,17 +285,17 @@ class NuevaAudienciaTableViewController: UITableViewController {
         navigationItem.titleView = spinner
         spinner.startAnimating()
         let parameters = ["codigo":API.Codes.obtenerNombreConCedula.rawValue,"cedula":"\(cedula)"]
-        println(parameters)
+        print(parameters)
         api.request(parameters, completion: { (json, error) -> Void in
          
             self.spinner.stopAnimating()
             self.navigationItem.titleView = self.oldTV
             if error == nil {
                 if let success = json?["success"].string {
-                    println("entre")
-                    println(success)
+                    print("entre")
+                    print(success)
                     if success == "true" {
-                        println("entre")
+                        print("entre")
                         if let nombre = json?["nombre"].string {
                             let cell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
                             cell?.detailTextLabel?.text = nombre
@@ -353,7 +353,7 @@ class NuevaAudienciaTableViewController: UITableViewController {
         
         
         let parameters = ["codigo":API.Codes.AgregarAudiencia.rawValue,"fecha":"\(fechaFromDate)","nombre":"\(titulo!)","motivo":"\(descripcion!)","lugar":"\(lugar!)","telefono":"\(telefono!)","cedula":"\(cedula!)","estado":"0","hora":"\(hora)"]
-        println(parameters)
+        print(parameters)
         api.request(parameters){ json, error in
             
             self.navigationItem.titleView = self.oldTV

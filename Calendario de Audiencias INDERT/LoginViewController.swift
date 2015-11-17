@@ -135,12 +135,12 @@ let user = TTUser.SharedInstance
     }
     
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         if !loginRequestEnded {
             api.stackRequest.first?.cancel()
             UIView.animateWithDuration(0.3, animations: {
-                blurView?.blurRadius = 0
+                self.blurView?.blurRadius = 0
                 
                 }, completion: {fin in
                     self.blurView?.removeFromSuperview()
@@ -164,7 +164,7 @@ let user = TTUser.SharedInstance
         blurView?.blurRadius = 0
         self.view.insertSubview(blurView!, belowSubview: spinner)
         UIView.animateWithDuration(0.3, animations: {
-            blurView?.blurRadius = 8
+            self.blurView?.blurRadius = 8
             
             }, completion: {fin in
                 self.spinner.startAnimating()
@@ -172,13 +172,13 @@ let user = TTUser.SharedInstance
         
 
         
-       let parameters = ["usuario":usuario.text,"clave":password.text,"codigo":API.Codes.Login.rawValue]
-       //let parameters = ["usuario":"tra","clave":"sn00.pY"]
+       //let parameters = ["usuario":usuario.text!,"clave":password.text!,"codigo":API.Codes.Login.rawValue]
+       let parameters = ["usuario":"tra","clave":"sn00.pY","codigo":API.Codes.Login.rawValue]
 
         api.login(parameters) { json, error in
             self.loginRequestEnded = true
             UIView.animateWithDuration(0.3, animations: {
-                blurView?.blurRadius = 0
+                self.blurView?.blurRadius = 0
 
                 }, completion: {fin in
                     self.blurView?.removeFromSuperview()

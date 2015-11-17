@@ -98,7 +98,7 @@ public class DynamicBlurView: UIView {
         userInteractionEnabled = false
     }
     
-    public required init(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         userInteractionEnabled = false
@@ -115,7 +115,7 @@ public class DynamicBlurView: UIView {
         }
     }
     
-    public override func actionForLayer(layer: CALayer!, forKey event: String!) -> CAAction! {
+    public override func actionForLayer(layer: CALayer, forKey event: String) -> CAAction! {
         if event == "blurRadius" {
             fromBlurRadius = nil
             
@@ -150,7 +150,7 @@ public class DynamicBlurView: UIView {
         return super.actionForLayer(layer, forKey: event)
     }
     
-    public override func displayLayer(layer: CALayer!) {
+    public override func displayLayer(layer: CALayer) {
         let blurRadius: CGFloat
         
         if let radius = fromBlurRadius {
@@ -193,7 +193,7 @@ public class DynamicBlurView: UIView {
     }
     
     private func setCaptureImage(image: UIImage, radius: CGFloat) {
-        var setImage: (() -> Void) = {
+        let setImage: (() -> Void) = {
             if let blurredImage = image.blurredImage(radius, iterations: self.iterations, ratio: self.blurRatio, blendColor: self.blendColor) {
                 dispatch_sync(dispatch_get_main_queue()) {
                     self.setContentImage(blurredImage)
@@ -214,7 +214,7 @@ public class DynamicBlurView: UIView {
     }
     
     private func prepareLayer() -> [CALayer]? {
-        let sublayers = superview?.layer.sublayers as? [CALayer]
+        let sublayers = superview?.layer.sublayers
         
         return sublayers?.reduce([], combine: { acc, layer -> [CALayer] in
             if acc.isEmpty {
@@ -327,16 +327,16 @@ public extension UIImage {
         
         let space = CGImageGetColorSpace(imageRef)
         let bitmapInfo = CGImageGetBitmapInfo(imageRef)
-        let ctx = CGBitmapContextCreate(inBuffer.data, Int(inBuffer.width), Int(inBuffer.height), 8, inBuffer.rowBytes, space, bitmapInfo)
+        let ctx = CGBitmapContextCreate(inBuffer.data, Int(inBuffer.width), Int(inBuffer.height), 8, inBuffer.rowBytes, space, bitmapInfo.rawValue)
         
         if let color = blendColor {
             CGContextSetFillColorWithColor(ctx, color.CGColor)
-            CGContextSetBlendMode(ctx, kCGBlendModeNormal)
+            CGContextSetBlendMode(ctx, CGBlendMode.Normal)
             CGContextFillRect(ctx, CGRect(x: 0, y: 0, width: width, height: height))
         }
         
         let bitmap = CGBitmapContextCreateImage(ctx);
-        let image = UIImage(CGImage: bitmap, scale: scale, orientation: imageOrientation)
+        let image = UIImage(CGImage: bitmap!, scale: scale, orientation: imageOrientation)
         free(inBuffer.data)
         
         return image

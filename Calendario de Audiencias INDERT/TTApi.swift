@@ -48,17 +48,17 @@ class  API {
                 completion(json: json, error: nil)
                 
             }else if response?.statusCode == 401 { //Unauthorized
-                println("error 401")
+                print("error 401")
                     /* OPTION 2, WE MAKE THE USER LOGIN AGAIN */
                     completion(json: json, error: "cookieExpired")
                 
             }else if response?.statusCode == 400 {
                 
-                completion(json: json, error: error?.localizedDescription)
+                completion(json: json, error: error.debugDescription)
                 
             }else{
                 //handle error
-                let errorString = error?.localizedDescription ?? "no error description."
+                let errorString = error.debugDescription
                 let statusCode = response?.statusCode ?? -1
                 completion(json: nil , error: "Response Status Code: \(statusCode) with error: \(errorString)")
                 
@@ -83,17 +83,17 @@ class  API {
                 completion(json: json, error: nil)
                 
             }else if response?.statusCode == 401 { //Unauthorized
-                println("error 401")
+                print("error 401")
                 /* OPTION 2, WE MAKE THE USER LOGIN AGAIN */
                 completion(json: json, error: "cookieExpired")
                 
             }else if response?.statusCode == 400 {
                 
-                completion(json: json, error: error?.localizedDescription)
+                completion(json: json, error: error.debugDescription)
                 
             }else{
                 //handle error
-                let errorString = error?.localizedDescription ?? "no error description."
+                let errorString = error.debugDescription ?? "no error description."
                 let statusCode = response?.statusCode ?? -1
                 completion(json: nil , error: "Response Status Code: \(statusCode) with error: \(errorString)")
                 
@@ -108,9 +108,9 @@ class  API {
     
     func checkCookies() {
         mgr.request(NSURLRequest(URL: NSURL(string: "http://indert.gov.py/segdoc/index.php?o=secciones&seccion=audiencias&accionRPC=login")!)).responseString {
-            (_, _, response, _) in
+            (response) in
             var resp = response // { "cookies": { "stack": "overflow" } }
-            println(resp)
+            print(resp)
         }
     }
 
@@ -128,7 +128,7 @@ class  API {
     // Logout
     
     func logout(){
-        for cookie in cookies.cookies as! [NSHTTPCookie] {
+        for cookie in cookies.cookies!  {
             cookies.deleteCookie(cookie)
         }
     }

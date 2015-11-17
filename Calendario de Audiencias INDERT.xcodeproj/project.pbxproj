@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9EE285F90983B916D48AB703 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26091E477F07299C6CCB35E /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		9EE285F90983B916D48AB703 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26091E477F07299C6CCB35E /* Pods.framework */; };
 		D90127C81B70E6C30008C085 /* TTUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90127C71B70E6C30008C085 /* TTUser.swift */; };
 		D90127CB1B7101420008C085 /* NuevaAudienciaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90127CA1B7101420008C085 /* NuevaAudienciaTableViewController.swift */; };
 		D90288B01B6BB3D9001768E3 /* DynamicBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90288AF1B6BB3D9001768E3 /* DynamicBlurView.swift */; };
@@ -45,6 +45,7 @@
 /* Begin PBXFileReference section */
 		14F16E17375A9776961C9292 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Calendario de Audiencias INDERT/Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5FA5A3AD867B6E7F0F5B3815 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Calendario de Audiencias INDERT/Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		91354863D4DB61E9397EE955 /* Pods.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.distribution.xcconfig; path = "Calendario de Audiencias INDERT/Pods/Target Support Files/Pods/Pods.distribution.xcconfig"; sourceTree = "<group>"; };
 		D90127C71B70E6C30008C085 /* TTUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTUser.swift; sourceTree = "<group>"; };
 		D90127CA1B7101420008C085 /* NuevaAudienciaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NuevaAudienciaTableViewController.swift; sourceTree = "<group>"; };
 		D90288AF1B6BB3D9001768E3 /* DynamicBlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicBlurView.swift; sourceTree = "<group>"; };
@@ -98,6 +99,7 @@
 			children = (
 				5FA5A3AD867B6E7F0F5B3815 /* Pods.debug.xcconfig */,
 				14F16E17375A9776961C9292 /* Pods.release.xcconfig */,
+				91354863D4DB61E9397EE955 /* Pods.distribution.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -335,8 +337,9 @@
 		D92685781B66F66F0041F949 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Tacuara Technologies";
 				TargetAttributes = {
 					D926857F1B66F66F0041F949 = {
@@ -523,6 +526,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -542,7 +546,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "117fc35d-b4c7-4165-b97b-3aba4d2623a0";
-				SDKROOT = iphoneos8.4;
+				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -582,7 +586,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "117fc35d-b4c7-4165-b97b-3aba4d2623a0";
-				SDKROOT = iphoneos8.4;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -598,6 +602,7 @@
 				INFOPLIST_FILE = "Calendario de Audiencias INDERT/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tacuaratech.Calendario-de-audiencias-INDERT";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "117fc35d-b4c7-4165-b97b-3aba4d2623a0";
 				SDKROOT = iphoneos;
@@ -615,6 +620,7 @@
 				INFOPLIST_FILE = "Calendario de Audiencias INDERT/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tacuaratech.Calendario-de-audiencias-INDERT";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "117fc35d-b4c7-4165-b97b-3aba4d2623a0";
 				SDKROOT = iphoneos;
@@ -639,6 +645,7 @@
 				INFOPLIST_FILE = "Calendario de Audiencias INDERTTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tacuaratech.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calendario de Audiencias INDERT.app/Calendario de Audiencias INDERT";
@@ -658,6 +665,7 @@
 				INFOPLIST_FILE = "Calendario de Audiencias INDERTTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tacuaratech.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calendario de Audiencias INDERT.app/Calendario de Audiencias INDERT";
@@ -698,7 +706,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "117fc35d-b4c7-4165-b97b-3aba4d2623a0";
-				SDKROOT = iphoneos8.4;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -706,7 +714,7 @@
 		};
 		D96572F21B717373001D1E54 /* Distribution */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14F16E17375A9776961C9292 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 91354863D4DB61E9397EE955 /* Pods.distribution.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Eduardo Rivarola (P5FUN8DH8K)";
@@ -714,6 +722,7 @@
 				INFOPLIST_FILE = "Calendario de Audiencias INDERT/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tacuaratech.Calendario-de-audiencias-INDERT";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "117fc35d-b4c7-4165-b97b-3aba4d2623a0";
 				SDKROOT = iphoneos;
@@ -734,6 +743,7 @@
 				INFOPLIST_FILE = "Calendario de Audiencias INDERTTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tacuaratech.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calendario de Audiencias INDERT.app/Calendario de Audiencias INDERT";

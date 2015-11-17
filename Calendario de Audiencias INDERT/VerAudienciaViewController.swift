@@ -32,7 +32,7 @@ class VerAudienciaViewController: UIViewController {
         estado.setTitle(audiencia.estado?.rawValue, forState: .Highlighted)
              notifySwitch.setOn(audiencia.notify, animated: false)
             
-            var dateFormatter = NSDateFormatter()
+            let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "dd-MM-yyyy HH:MM"
             
             fecha.text = dateFormatter.stringFromDate(audiencia.fecha!)
@@ -101,7 +101,7 @@ class VerAudienciaViewController: UIViewController {
         
         let hora = formatter.stringFromDate(audiencia!.fecha!)
          let parameters = ["codigo":API.Codes.ActualizarAudiencia.rawValue,"fecha":"\(date)","hora":"\(hora)","nombre":"\(audiencia!.titulo!)","motivo":"\(audiencia!.descripcion!)","lugar":"\(audiencia!.lugar!)","telefono":"\(audiencia!.telefono!)","cedula":"\(audiencia!.ciSolicitante!)","estado":"\(estado)","id_audiencia": "\(audiencia!.id!)"]
-        println(parameters)
+        print(parameters, terminator: "")
 
         let blurView = DynamicBlurView(frame: self.view.frame)
         blurView.blurRadius = 0

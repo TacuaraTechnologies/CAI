@@ -52,10 +52,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func setupNotifications(){
-        let notificationSettings: UIUserNotificationSettings = UIApplication.sharedApplication().currentUserNotificationSettings()
+        let notificationSettings: UIUserNotificationSettings = UIApplication.sharedApplication().currentUserNotificationSettings()!
 //        if notificationSettings.types == .None {
         
-            var userNotificationTypes:UIUserNotificationType = .Alert | .Sound | .Badge
+            var userNotificationTypes:UIUserNotificationType = [.Alert, .Sound, .Badge]
             
             var informAction = UIMutableUserNotificationAction()
             informAction.identifier = TTNotificationsID.Informar
@@ -80,12 +80,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let actionsArray = NSArray(objects: informAction, snooze, delete)
             let minimalArray = NSArray(objects: informAction,snooze)
-            
+            let acarr = UIUserNotificationAction()
+        
             
             let category = UIMutableUserNotificationCategory()
             category.identifier = "audienciasNotificationsCategoryIdentifier"
-            category.setActions(actionsArray as [AnyObject], forContext: .Default)
-            category.setActions(minimalArray as [AnyObject], forContext: .Minimal)
+            category.setActions([informAction,snooze,delete] , forContext: .Default)
+            category.setActions([informAction,snooze] , forContext: .Minimal)
             
             let categoriesForSettings = Set(arrayLiteral: category)
             let newNotificationSettings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: categoriesForSettings)
@@ -126,7 +127,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "tacuaratech.Calendario_de_Audiencias_INDERT" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as! NSURL
+        return urls[urls.count-1] 
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
@@ -142,7 +143,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Calendario_de_Audiencias_INDERT.sqlite")
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
-        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil, error: &error) == nil {
+        do {
+            try coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+        } catch var error1 as NSError {
+            error = error1
             coordinator = nil
             // Report any error we got.
             var dict = [String: AnyObject]()
@@ -154,6 +158,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(error), \(error!.userInfo)")
             abort()
+        } catch {
+            fatalError()
         }
         
         return coordinator
@@ -175,11 +181,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func saveContext () {
         if let moc = self.managedObjectContext {
             var error: NSError? = nil
-            if moc.hasChanges && !moc.save(&error) {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                NSLog("Unresolved error \(error), \(error!.userInfo)")
-                abort()
+            if moc.hasChanges {
+                do {
+                    try moc.save()
+                } catch let error1 as NSError {
+                    error = error1
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    NSLog("Unresolved error \(error), \(error!.userInfo)")
+                    abort()
+                }
             }
         }
     }

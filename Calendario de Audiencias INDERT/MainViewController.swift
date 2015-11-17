@@ -66,25 +66,40 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                  
 
                         for audiencia in audiencias {
-                            
+                            print(audiencia)
                             let newAudiencia = TTAudiencia()
                           newAudiencia.id = audiencia["id_audiencia"].string
-                            newAudiencia.titulo = audiencia["nombre"].string
+                            newAudiencia.titulo = audiencia["nombre"].string ?? "Sin datos"
                             
-                            var fechaFromJson = audiencia["fecha"].string
+                            let fechaFromJson = audiencia["fecha"].string
                             newAudiencia.fechaJson = fechaFromJson
-                            
+                            print(newAudiencia.fechaJson)
                             let formatter = NSDateFormatter()
-                            formatter.locale = NSLocale(localeIdentifier: "ES_es")
-                            formatter.dateFormat = "dd/MM/yyyy, HH:mm:ss"
-                            let date = formatter.dateFromString(fechaFromJson!)
+                            //formatter.locale = NSLocale(localeIdentifier: "ES_es")
+                            formatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
+                            if let date = formatter.dateFromString(fechaFromJson!) {
+                                newAudiencia.fecha = date
+                                
+                                let currentDate = NSDate()
+
+                                let compare = date.compare(currentDate)
+                                switch compare {
+                                case .OrderedDescending: // Audiencia proxima
+                                    self.audienciasProximas.append(newAudiencia)
+                                case .OrderedSame:
+                                    self.audienciasProximas.append(newAudiencia)
+                                case .OrderedAscending: //audiencia ya paso
+                                    self.audienciasPasadas.append(newAudiencia)
+                                    
+                                    
+                                }
+
+                            }
                             newAudiencia.lugar = audiencia["lugar"].string ?? "-1"
                             newAudiencia.ciSolicitante = audiencia["cedula"].string ?? "0000"
                             newAudiencia.telefono = audiencia["telefono"].string ?? "0"
                         
-                            newAudiencia.fecha = date
 
-                            let currentDate = NSDate()
                             
                             
                             
@@ -103,19 +118,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             }
                             newAudiencia.notify = true
                             
-                            
-                            let compare = date!.compare(currentDate)
-                            switch compare {
-                            case .OrderedDescending: // Audiencia proxima
-                                self.audienciasProximas.append(newAudiencia)
-                            case .OrderedSame:
-                                self.audienciasProximas.append(newAudiencia)
-                            case .OrderedAscending: //audiencia ya paso
-                                self.audienciasPasadas.append(newAudiencia)
-
-
-                            }
-                        }
+                        
+                                                   }
                     }else{
                         //failure
                 }
@@ -130,7 +134,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 
             }else{
                 //connection error
-                println(error)
+                print(error)
             }
             }
         
@@ -141,7 +145,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         var events = TTUserPreferences.SharedInstance.calendarEvents
         for au in audiencias {
             for aud in au {
-            if !contains(events,aud.id!) {
+            if !events.contains((aud.id!)) {
                 aud.setAsEventInCalendar()
                 events.append(aud.id!)
             }
@@ -249,7 +253,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         cell.titulo.text = audienciasForDisplay[indexPath.row].titulo
         cell.descripcion.text =  audienciasForDisplay[indexPath.row].descripcion ?? "Sin datos"
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.locale = NSLocale(localeIdentifier: "ES_es")
         dateFormatter.dateFormat = "E, dd MMM yyyy HH:mm"
         
@@ -295,7 +299,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
         
         let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Borrar", handler: {action, ip in
@@ -401,16 +405,16 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //search for audiencia
         
         filteredAudiencias[0] = audienciasProximas.filter({ (data) -> Bool in
-            
+        
             let tmp: NSString = data.titulo!
-            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch | NSStringCompareOptions.DiacriticInsensitiveSearch)
+            let range = tmp.rangeOfString(searchText, options: [NSStringCompareOptions.CaseInsensitiveSearch, NSStringCompareOptions.DiacriticInsensitiveSearch])
             return range.location != NSNotFound
             
         })
         filteredAudiencias[1] = audienciasPasadas.filter({ (data) -> Bool in
             
             let tmp: NSString = data.titulo!
-            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch | NSStringCompareOptions.DiacriticInsensitiveSearch)
+            let range = tmp.rangeOfString(searchText, options: [NSStringCompareOptions.CaseInsensitiveSearch, NSStringCompareOptions.DiacriticInsensitiveSearch])
             return range.location != NSNotFound
             
         })
@@ -446,7 +450,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func notifySwitchChanged(sender: UISwitch){
         let switchPos = sender.convertPoint(CGPointZero, toView: self.tableView)
-        var indexPath = self.tableView.indexPathForRowAtPoint(switchPos)
+        let indexPath = self.tableView.indexPathForRowAtPoint(switchPos)
         if indexPath != nil {
             if indexPath?.section == 0 {
                 let audiencia = audienciasProximas[indexPath!.row]

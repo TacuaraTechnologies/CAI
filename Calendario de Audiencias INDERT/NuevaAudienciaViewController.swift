@@ -93,12 +93,12 @@ class NuevaAudienciaViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     func datePickerValueChanged(datePicker: UIDatePicker) {
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy HH:MM"
         fecha.text =  dateFormatter.stringFromDate(datePicker.date)
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
     
@@ -134,7 +134,7 @@ class NuevaAudienciaViewController: UIViewController, UITextFieldDelegate {
 
         let hora = dateFormatter.stringFromDate(datePicker.date)
           let parameters = ["codigo":API.Codes.AgregarAudiencia.rawValue,"fecha":"\(fechaFromDate)","nombre":"\(titulo.text)","motivo":"\(descripcion.text)","lugar":"\(lugar.text)","telefono":"0","cedula":"0","estado":"0","hora":"\(hora)"]
-        println(parameters)
+        print(parameters)
         api.request(parameters){ json, error in
             
             

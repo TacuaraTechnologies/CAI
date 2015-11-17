@@ -46,10 +46,10 @@ class TTAudiencia {
     
     
     private func disableNotification(notificationID : String?) {
-        for notification in UIApplication.sharedApplication().scheduledLocalNotifications as! [UILocalNotification] {
+        for notification in UIApplication.sharedApplication().scheduledLocalNotifications!  {
             if (notification.userInfo!["id_audiencia"] as? String == notificationID) {
                 UIApplication.sharedApplication().cancelLocalNotification(notification)
-                println("notification disabled for \(self.titulo!)")
+                print("notification disabled for \(self.titulo!)")
                 break
             }
         }
@@ -62,19 +62,23 @@ class TTAudiencia {
                 var notification =  UILocalNotification()
                 notification.fireDate = self.fecha
                 notification.alertBody = self.titulo
-                notification.alertTitle = "Tienes una audiencia!"
+                if #available(iOS 8.2, *) {
+                    notification.alertTitle = "Tienes una audiencia!"
+                } else {
+                    // Fallback on earlier versions
+                
+                }
                 notification.alertAction = "Ver Detalles"
                 notification.category = "audienciasNotificationsCategoryIdentifier"
                 var idInfo = ["id_audiencia":self.id!]
                 notification.userInfo = idInfo
                 
-                for noti in UIApplication.sharedApplication().scheduledLocalNotifications as! [UILocalNotification] {
+                for noti in UIApplication.sharedApplication().scheduledLocalNotifications! {
                     if notification.userInfo!["id_audiencia"] as? String == self.id {
-                        println("notification already set for \(self.titulo!)")
                         return false
                     }
                 }
-                println("notification Enabled for \(self.titulo!)")
+                print("notification Enabled for \(self.titulo!)")
 
                 UIApplication.sharedApplication().scheduleLocalNotification(notification)
                 return true
@@ -92,22 +96,26 @@ class TTAudiencia {
     
     func setAsEventInCalendar(){
         var eventStore: EKEventStore = EKEventStore()
-        eventStore.requestAccessToEntityType(EKEntityTypeEvent) { granted, error in
+        eventStore.requestAccessToEntityType(EKEntityType.Event) { granted, error in
             if granted && error == nil {
                 
                
                     
                     var event = EKEvent(eventStore: eventStore)
-                    event.title = self.titulo
-                    
-                    event.startDate = self.fecha
-                    event.endDate = self.fecha?.dateByAddingTimeInterval(30.0*15)
+                    if let tit = self.titulo {
+                    event.title = tit
+                    }
+                    event.startDate = self.fecha!
+                    event.endDate = (self.fecha?.dateByAddingTimeInterval(30.0*15))!
                     event.notes = self.descripcion
                     event.calendar = eventStore.defaultCalendarForNewEvents
                     var alarm:EKAlarm = EKAlarm(relativeOffset: -60*15)
                     event.alarms = [alarm]
                     
-                    eventStore.saveEvent(event, span: EKSpanThisEvent, error: nil)
+                    do {
+                        try eventStore.saveEvent(event, span: EKSpan.ThisEvent)
+                    } catch _ {
+                    }
                     
                     
                 
@@ -128,16 +136,16 @@ class TTAudiencia {
     }
     
     private func fixNotificationDate(dateToFix: NSDate) -> NSDate {
-        var dateComponents : NSDateComponents = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute, fromDate: dateToFix)
+        let dateComponents : NSDateComponents = NSCalendar.currentCalendar().components([NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year, NSCalendarUnit.Hour, NSCalendarUnit.Minute], fromDate: dateToFix)
         dateComponents.second = 50 + Int(arc4random()%5)
-        var fixedDate: NSDate = NSCalendar.currentCalendar().dateFromComponents(dateComponents)!
+        let fixedDate: NSDate = NSCalendar.currentCalendar().dateFromComponents(dateComponents)!
         return fixedDate
     }
     
     func fetchEvents(completed: (NSMutableArray) -> ()) {
         var eventStore: EKEventStore = EKEventStore()
         
-        eventStore.requestAccessToEntityType(EKEntityType()) { [weak self]
+        eventStore.requestAccessToEntityType(EKEntityType.Event) { [weak self]
             granted, error in
             if let strongSelf = self {
                 let endDate = NSDate(timeIntervalSinceNow: 604800*10);   //This is 10 weeks in seconds
